@@ -9,34 +9,26 @@
 
 
 document.addEventListener('DOMContentLoaded', bindButtons);
-console.log("2");
       function bindButtons(){
-        document.getElementById('subButton').addEventListener('click', function(event){
-
-console.log("3");        
+        document.getElementById('subButton').addEventListener('click', function(event){        
         
 	  var appid = "df6c009c60e3c7cbe14481594ed9c9ab";  
 	  var URL;
 	  if(document.getElementById("city").value == ""){
 		var zip_in = document.getElementById("zipCode").value;
-		console.log(zip_in);
 		URL = 'api.openweathermap.org/data/2.5/weather?zip=' + zip_in + ',us&appid=' + appid;
 	
   }else{
 		var city_in = document.getElementById("city").value;
-console.log(city_in);
 		URL = 'api.openweathermap.org/data/2.5/weather?q=' + city_in + ',us&appid=' + appid;
 	}
 
-
-console.log("4");
 	  var req = new XMLHttpRequest();
 	  
           req.open('GET', URL, true);
 	  req.addEventListener('load',function(){
       if(req.status >= 200 && req.status < 400){
         var response = JSON.parse(req.responseText);
-        console.log(response);
         var location;
         var temp;
         var humidity;
@@ -56,7 +48,7 @@ console.log("4");
 
           
         });
-console.log("11");
+
       }
 
 
